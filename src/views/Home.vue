@@ -49,43 +49,6 @@
                 </svg>
               </a>
             </li>
-            <li class="py-1">
-              <a href="#" class="flex justify-end px-4 border-r-4 border-white">
-                <span>About</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-5 h-6 ml-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </a>
-            </li>
-            <li class="py-1">
-              <a href="#" class="flex justify-end px-4 border-r-4 border-white">
-                <span>Contact</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-5 h-5 ml-2"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
-                  />
-                  <path
-                    d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
-                  />
-                </svg>
-              </a>
-            </li>
           </ul>
         </nav>
       </div>
@@ -132,7 +95,7 @@
                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span>{{rhyme.duration}}</span>
+                <span>{{ rhyme.duration }}</span>
               </div>
               <div class="flex justify-end btn">
                 <span><a :href="rhyme.url" target="_blank">Watch</a></span>
@@ -154,74 +117,20 @@
           </h4>
           <div class="grid gap-10 mt-8 lg:grid-cols-3">
             <!-- cards -->
-            <div v-for="rhyme in kindergatenRhymesLoaded" :key="rhyme.id" class="card hover:shadow-lg">
-              <img
-                :src="rhyme.image"
-                
-                class="object-cover w-full h-32 sm:h-48"
-              />
-              <div class="m-4">
-                <span class="font-bold">{{rhyme.title}}</span>
-                <span class="block text-sm text-gray-500"
-                  >{{rhyme.createdBy}}</span
-                >
-              </div>
-              <div class="badge">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="inline-block w-5 h-6 mr-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <span>{{rhyme.duration}}</span>
-              </div>
-              <div class="flex justify-end btn">
-                <span
-                  ><a
-                    :href="rhyme.url"
-                    target="_blank"
-                    >Watch</a
-                  ></span
-                >
-              </div>
-            </div>
-          
-         
-          </div>
-
-          <div class="flex justify-center mt-6">
             <div
-            @click="loadMore2"
-              class="transform bg-secondary-100 text-secondary-200 btn hover:scale-125"
+              v-for="rhyme in kindergatenRhymesLoaded"
+              :key="rhyme.id"
+              class="card hover:shadow-lg"
             >
-              Load more
-            </div>
-          </div>
-
-          <h4 class="pb-2 mt-12 font-bold border-b border-gray-200 text">
-            Primary
-          </h4>
-          <div class="grid gap-10 mt-8 lg:grid-cols-3">
-            <!-- cards -->
-            <div v-for="rhyme in primaryRhymesLoaded" :key="rhyme.id" class="card hover:shadow-lg">
               <img
                 :src="rhyme.image"
-                alt=""
                 class="object-cover w-full h-32 sm:h-48"
               />
               <div class="m-4">
-                <span class="font-bold">{{rhyme.title}}</span>
-                <span class="block text-sm text-gray-500"
-                  >{{rhyme.createdBy}}</span
-                >
+                <span class="font-bold">{{ rhyme.title }}</span>
+                <span class="block text-sm text-gray-500">{{
+                  rhyme.createdBy
+                }}</span>
               </div>
               <div class="badge">
                 <svg
@@ -238,25 +147,17 @@
                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span>{{rhyme.duration}}</span>
+                <span>{{ rhyme.duration }}</span>
               </div>
               <div class="flex justify-end btn">
-                <span
-                  ><a
-                    :href="rhyme.url"
-                    target="_blank"
-                    >Watch</a
-                  ></span
-                >
+                <span><a :href="rhyme.url" target="_blank">Watch</a></span>
               </div>
             </div>
-           
-           
           </div>
 
           <div class="flex justify-center mt-6">
             <div
-            @click="loadMore3"
+              @click="loadMore2"
               class="transform bg-secondary-100 text-secondary-200 btn hover:scale-125"
             >
               Load more
@@ -350,8 +251,7 @@ export default {
       },
     ]);
 
-
-        const kindergatenRhymes = ref([
+    const kindergatenRhymes = ref([
       {
         title: "Learning Videos for Toddlers",
         createdBy: "Boey Bear",
@@ -393,7 +293,8 @@ export default {
         id: 5,
       },
       {
-        title: "Preschool Learning for Kids (Learn the ABC's, Colors, Feelings, & More!)",
+        title:
+          "Preschool Learning for Kids (Learn the ABC's, Colors, Feelings, & More!)",
         createdBy: "Learning Time Fun",
         duration: "45mins",
         image: require("@/assets/images/kin6.jpg"),
@@ -409,7 +310,8 @@ export default {
         id: 7,
       },
       {
-        title: "Basic Math Addition For Kids | Noodle Kidz Pre-K and Kindergarten Educational Video",
+        title:
+          "Basic Math Addition For Kids | Noodle Kidz Pre-K and Kindergarten Educational Video",
         createdBy: "Noodle Kidz",
         duration: "8mins",
         image: require("@/assets/images/kin8.jpg"),
@@ -417,7 +319,8 @@ export default {
         id: 8,
       },
       {
-        title: "Preschool Learning Videos for 3 Year Olds | Kids Learning Videos | Educational Videos For Kids",
+        title:
+          "Preschool Learning Videos for 3 Year Olds | Kids Learning Videos | Educational Videos For Kids",
         createdBy: "The Soft Roots",
         duration: "102mins",
         image: require("@/assets/images/kin9.jpg"),
@@ -425,87 +328,6 @@ export default {
         id: 9,
       },
     ]);
-
-
-
-   const primaryRhymes = ref([
-      {
-        title: "Badanamu",
-        createdBy: "test",
-        duration: "testing",
-        image: require("@/assets/images/primary.webp"),
-        url: "https://www.youtube.com/watch?v=mJaxCjNJDww",
-        id: 1,
-      },
-      {
-        title: "Badanamu",
-        createdBy: "Badanamu",
-        duration: "badanamu",
-        image: require("@/assets/images/primary.webp"),
-        url: "https://www.youtube.com/watch?v=mJaxCjNJDww",
-        id: 2,
-      },
-      {
-        title: "Badanamu",
-        createdBy: "Badanamu",
-        duration: "badanamu",
-        image: require("@/assets/images/primary.webp"),
-        url: "https://www.youtube.com/watch?v=mJaxCjNJDww",
-        id: 3,
-      },
-      {
-        title: "Badanamu",
-        createdBy: "Badanamu",
-        duration: "badanamu",
-        image: require("@/assets/images/primary.webp"),
-        url: "https://www.youtube.com/watch?v=mJaxCjNJDww",
-        id: 4,
-      },
-      {
-        title: "Badanamu",
-        createdBy: "Badanamu",
-        duration: "badanamu",
-        image: require("@/assets/images/primary.webp"),
-        url: "https://www.youtube.com/watch?v=mJaxCjNJDww",
-        id: 5,
-      },
-      {
-        title: "Badanamu",
-        createdBy: "Badanamu",
-        duration: "badanamu",
-        image: require("@/assets/images/primary.webp"),
-        url: "https://www.youtube.com/watch?v=mJaxCjNJDww",
-        id: 6,
-      },
-      {
-        title: "Badanamu",
-        createdBy: "Badanamu",
-        duration: "badanamu",
-        image: require("@/assets/images/primary.webp"),
-        url: "https://www.youtube.com/watch?v=mJaxCjNJDww",
-        id: 7,
-      },
-      {
-        title: "Badanamu",
-        createdBy: "Badanamu",
-        duration: "badanamu",
-        image: require("@/assets/images/primary.webp"),
-        url: "https://www.youtube.com/watch?v=mJaxCjNJDww",
-        id: 8,
-      },
-      {
-        title: "Badanamu",
-        createdBy: "Badanamu",
-        duration: "badanamu",
-        image: require("@/assets/images/primary.webp"),
-        url: "https://www.youtube.com/watch?v=mJaxCjNJDww",
-        id: 9,
-      },
-    ]);
-
-
-
-    
 
     const nurseryVideosToShow = ref(3);
 
@@ -518,14 +340,11 @@ export default {
       return nurseryRhymes.value.slice(0, nurseryVideosToShow.value);
     });
 
-
-
-        
-
     const kindergatenVideosToShow = ref(3);
 
     const loadMore2 = () => {
-      if (kindergatenVideosToShow.value > kindergatenRhymes.value.length) return;
+      if (kindergatenVideosToShow.value > kindergatenRhymes.value.length)
+        return;
       kindergatenVideosToShow.value = kindergatenVideosToShow.value + 3;
     };
 
@@ -533,22 +352,12 @@ export default {
       return kindergatenRhymes.value.slice(0, kindergatenVideosToShow.value);
     });
 
-
-     const primaryVideosToShow = ref(3);
-
-    const loadMore3 = () => {
-      if (primaryVideosToShow.value > primaryRhymes.value.length) return;
-      primaryVideosToShow.value = primaryVideosToShow.value + 3;
+    return {
+      loadMore,
+      loadMore2,
+      nurseryRhymesLoaded,
+      kindergatenRhymesLoaded,
     };
-
-    const primaryRhymesLoaded = computed(() => {
-      return primaryRhymes.value.slice(0, primaryVideosToShow.value);
-    });
-
-
-    
-
-    return { loadMore,loadMore2, loadMore3, nurseryRhymesLoaded, kindergatenRhymesLoaded, primaryRhymesLoaded };
   },
 };
 </script>
